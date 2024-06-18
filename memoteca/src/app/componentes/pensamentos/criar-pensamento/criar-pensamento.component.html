@@ -11,6 +11,15 @@
       placeholder="Digite o pensamento"
       formControlName="conteudo"
     />
+    <div
+      class="mensagem__erro"
+      *ngIf="
+        formulario.get('conteudo')?.errors &&
+        formulario.get('conteudo')?.touched
+      "
+    >
+      Pensamento é obrigatório!
+    </div>
     <label for="autoria">Autoria ou fonte</label>
     <input
       type="text"
@@ -19,6 +28,24 @@
       placeholder="Digite a autoria ou fonte"
       formControlName="autoria"
     />
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['required'] && formulario.get('autoria')?.touched"
+    >
+      Autoria é obrigatória!
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['minLength']"
+    >
+      Autoria precisa ter no mínimo 3 caracteres!
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['minusculo'] && formulario.get('autoria')?.touched"
+    >
+      Esse campo aceita apenas letras minúsculas
+    </div>
     <label for="modelo">Selecione o modelo do card:</label>
     <div class="container-radio">
       <div class="radio-modelo">
@@ -91,8 +118,15 @@
       </div>
     </div>
     <div class="acoes">
-      <button (click)="criarPensamento()" class="botao">Salvar</button>
-      <button (click)="cancelar()" class="botao">Cancelar</button>
+      <button
+        (click)="criarPensamento()"
+        [disabled]="!formulario.valid"
+        [ngClass]="habilitarBotao()"
+      >
+        Salvar
+      </button>
+
+      <button (click)="cancelar()">Cancelar</button>
     </div>
   </form>
 </section>

@@ -21,8 +21,9 @@ export class PensamentoService {
             .set("_limit", itensPorPagina)
 
         if (filtro.trim().length > 2) {
-            params.set("q", filtro);
+            params = params.set("q", filtro)
         }
+
         return this.http.get<Pensamento[]>(this.API, { params })
     }
 
@@ -34,6 +35,11 @@ export class PensamentoService {
         const url = `${this.API}/${pensamento.id}`
         return this.http.put<Pensamento>(url, pensamento)
 
+    }
+
+    mudarFavorito(pensamento: Pensamento): Observable<Pensamento> {
+        pensamento.favorito = !pensamento.favorito;
+        return this.editar(pensamento);
     }
 
     excluir(id: number): Observable<Pensamento> {

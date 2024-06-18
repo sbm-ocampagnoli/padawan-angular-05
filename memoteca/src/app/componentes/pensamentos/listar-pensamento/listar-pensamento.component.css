@@ -16,7 +16,7 @@
   margin: 1rem 0 2rem;
 }
 
-.d-flex {
+.d-flex{
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -29,7 +29,7 @@
 }
 
 .buscar-pensamentos {
-  background: #f8f9fe;
+  background: #F8F9FE;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   height: 44px;
@@ -47,8 +47,8 @@
 }
 
 input::placeholder {
-  color: #c4c4c4;
-  font-family: "Inter";
+  color: #C4C4C4;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -64,7 +64,7 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 100%;
   left: 437px;
   top: 537px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;

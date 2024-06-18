@@ -21,16 +21,18 @@ export class CriarPensamentoComponent implements OnInit {
 
     ngOnInit(): void {
         this.formulario = this.formBuilder.group({
-            conteudo: ["Formulário reativo", Validators.required],
-            autoria: [""],
+            conteudo: ["", [Validators.required]],
+            autoria: ["", [Validators.required]],
             modelo: ["modelo1"],
         });
     }
 
     criarPensamento() {
-        this.service.criar(this.formulario.value).subscribe(() => {
-            this.router.navigate(["/listarPensamento"]);
-        });
+        if (this.formulario.valid) {
+            this.service.criar(this.formulario.value).subscribe(() => {
+                this.router.navigate(["/listarPensamento"]);
+            });
+        }
     }
 
     cancelar() {

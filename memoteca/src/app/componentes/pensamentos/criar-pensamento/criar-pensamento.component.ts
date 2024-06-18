@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
     styleUrls: ["./criar-pensamento.component.css"],
 })
 export class CriarPensamentoComponent implements OnInit {
-
     formulario!: FormGroup;
 
     constructor(
@@ -21,8 +20,17 @@ export class CriarPensamentoComponent implements OnInit {
 
     ngOnInit(): void {
         this.formulario = this.formBuilder.group({
-            conteudo: ["", [Validators.required]],
-            autoria: ["", [Validators.required]],
+            conteudo: [
+                "",
+                Validators.compose([
+                    Validators.required,
+                    Validators.pattern(/(.|\s)*\S(.|\s)*/),
+                ]),
+            ],
+            autoria: [
+                "",
+                Validators.compose([Validators.required, Validators.minLength(3)]),
+            ],
             modelo: ["modelo1"],
         });
     }

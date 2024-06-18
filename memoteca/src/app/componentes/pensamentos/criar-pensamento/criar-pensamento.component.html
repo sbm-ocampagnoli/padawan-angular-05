@@ -14,7 +14,8 @@
     <div
       class="mensagem__erro"
       *ngIf="
-        formulario.get('conteudo')?.errors && formulario.get('conteudo')?.touched
+        formulario.get('conteudo')?.errors &&
+        formulario.get('conteudo')?.touched
       "
     >
       Pensamento é obrigatório!
@@ -38,6 +39,12 @@
       *ngIf="formulario.get('autoria')?.errors?.['minLength']"
     >
       Autoria precisa ter no mínimo 3 caracteres!
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['minusculo'] && formulario.get('autoria')?.touched"
+    >
+      Esse campo aceita apenas letras minúsculas
     </div>
     <label for="modelo">Selecione o modelo do card:</label>
     <div class="container-radio">
@@ -111,8 +118,14 @@
       </div>
     </div>
     <div class="acoes">
-      <button (click)="criarPensamento()" [disabled]="!formulario.valid" [ngClass]="habilitarBotao()">Salvar</button>
-      
+      <button
+        (click)="criarPensamento()"
+        [disabled]="!formulario.valid"
+        [ngClass]="habilitarBotao()"
+      >
+        Salvar
+      </button>
+
       <button (click)="cancelar()">Cancelar</button>
     </div>
   </form>

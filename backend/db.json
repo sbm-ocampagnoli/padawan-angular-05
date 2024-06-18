@@ -3,7 +3,7 @@
     {
       "id": "2",
       "conteudo": "Na volta a gente compra!",
-      "favorito": true,
+      "favorito": false,
       "autoria": "Mãe",
       "modelo": "modelo2"
     },
@@ -16,7 +16,7 @@
     },
     {
       "conteudo": "Já tentou reiniciar o roteador?",
-      "favorito": true,
+      "favorito": false,
       "autoria": "Pessoa da operadora",
       "modelo": "modelo3",
       "id": "5"

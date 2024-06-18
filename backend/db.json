@@ -3,14 +3,14 @@
     {
       "id": "2",
       "conteudo": "Na volta a gente compra!",
-      "favorito": false,
+      "favorito": true,
       "autoria": "Mãe",
       "modelo": "modelo2"
     },
     {
       "id": "4",
       "conteudo": "Vc faz TI? Conserta meu celular!",
-      "favorito": false,
+      "favorito": true,
       "autoria": "Grupo da família",
       "modelo": "modelo1"
     },
